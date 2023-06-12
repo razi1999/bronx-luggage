@@ -1,0 +1,205 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+    <title>Document</title>
+
+
+</head>
+<body>
+    
+     Filter Modal
+    <div id="filterModal" class="modal fade" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Product Filter</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h5>Size</h5>
+                            <label><input type="checkbox" name="size" value="all"> All</label><br>
+                            <label><input type="checkbox" name="size" value="S"> S</label><br>
+                            <label><input type="checkbox" name="size" value="M"> M</label><br>
+                            <label><input type="checkbox" name="size" value="L"> L</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <h5>Color</h5>
+                            <label><input type="checkbox" name="color" value="all"> All</label><br>
+                            <label><input type="checkbox" name="color" value="Red"> Red</label><br>
+                            <label><input type="checkbox" name="color" value="Blue"> Blue</label><br>
+                            <label><input type="checkbox" name="color" value="Black"> Black</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <h5>Price</h5>
+                            <label><input type="checkbox" name="price" value="all"> All</label><br>
+                            <label><input type="checkbox" name="price" value="0-20"> $0 - $100</label><br>
+                            <label><input type="checkbox" name="price" value="20-50"> $100 - $1000</label><br>
+                            <label><input type="checkbox" name="price" value="50-100"> $1000 - $10000</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <h5>Brand</h5>
+                            <label><input type="checkbox" name="brand" value="all"> All</label><br>
+                            <label><input type="checkbox" name="brand" value="Nike"> Nike</label><br>
+                            <label><input type="checkbox" name="brand" value="Adidas"> Adidas</label><br>
+                            <label><input type="checkbox" name="brand" value="Levi's"> Levi's</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>Gender</h5>
+                            <label><input type="radio" name="gender" value="all"> All</label><br>
+                            <label><input type="radio" name="gender" value="Men"> Men</label><br>
+                            <label><input type="radio" name="gender" value="Women"> Women</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="filterProducts()">Apply Filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
+
+
+
+<script>
+    // filter
+    $(document).ready(function () {
+        function filterProducts() {
+            // Get selected values from filters
+            var selectedSizes = [];
+            $("input[name='size']:checked").each(function () {
+                var value = $(this).val();
+                if (value !== 'all') {
+                    selectedSizes.push(value);
+                }
+            });
+
+            var selectedColors = [];
+            $("input[name='color']:checked").each(function () {
+                var value = $(this).val();
+                if (value !== 'all') {
+                    selectedColors.push(value);
+                }
+            });
+
+            var selectedPrices = [];
+            $("input[name='price']:checked").each(function () {
+                var value = $(this).val();
+                if (value !== 'all') {
+                    selectedPrices.push(value);
+                }
+            });
+
+            var selectedBrands = [];
+            $("input[name='brand']:checked").each(function () {
+                var value = $(this).val();
+                if (value !== 'all') {
+                    selectedBrands.push(value);
+                }
+            });
+
+            var selectedGender = $("input[name='gender']:checked").val();
+
+            // Perform filtering based on selected values
+            // Your filtering logic here
+
+            // Example output to console
+            console.log("Selected Sizes:", selectedSizes);
+            console.log("Selected Colors:", selectedColors);
+            console.log("Selected Prices:", selectedPrices);
+            console.log("Selected Brands:", selectedBrands);
+            console.log("Selected Gender:", selectedGender);
+
+            // Close the modal
+            $("#filterModal").modal("hide");
+        }
+
+        // JavaScript code
+    });
+</script>
+</body>
+</html> 
+
+
+
+
+ -->
+ <html>
+    <head>
+      <title>Website Counter</title>
+      <style>
+
+
+
+
+/* Styles for website counter container */
+.website-counter {
+  background-color: #ff4957;
+  height: 50px;
+  width: 80px;
+  color: white;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Styles for reset button */
+#reset {
+  margin-top: 20px;
+  background-color: #008cba;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px 20px;
+  color: white;
+  border: 0;
+}
+      </style>
+
+    </head>
+    <body>
+        <div style="float: right;">
+      <div>Website visit count:</div>
+      <div class="website-counter"></div>
+      <button id="reset">Reset</button>
+    </div>
+    <script>
+        var counterContainer = document.querySelector(".website-counter");
+var resetButton = document.querySelector("#reset");
+var visitCount = localStorage.getItem("page_view");
+
+// Check if page_view entry is present
+if (visitCount) {
+  visitCount = Number(visitCount) + 1;
+  localStorage.setItem("page_view", visitCount);
+} else {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+}
+counterContainer.innerHTML = visitCount;
+
+// Adding onClick event listener
+resetButton.addEventListener("click", () => {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+  counterContainer.innerHTML = visitCount;
+});
+    </script>
+    </body>
+  </html>

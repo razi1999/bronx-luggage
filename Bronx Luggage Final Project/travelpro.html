@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Travelpro</title>
+    <style>
+                .topnav{
+            width: 100%;
+            height: 4vh;
+            background-color: rgb(0, 0, 88);
+            text-align: center;
+            color: rgba(214, 213, 213, 0.61);
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .logo {
+            width: 4%;
+            margin-top: 15px;
+        }
+
+        .page-header {
+            border-bottom: none;
+            margin-top: -1px;
+            background-color: rgba(214, 213, 213, 0.253);
+        }
+
+        .page-header h1 a:hover {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background-color: rgba(214, 213, 213, 0.253);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar-default .navbar-nav>li>a {
+            color: rgb(0, 0, 88);
+            font-weight: bold;
+        }
+
+        .navbar-default .navbar-nav>li>a:hover {
+            background-color: transparent;
+            color: darkred;
+            font-style: italic;
+            opacity: 0.5;
+        }
+
+
+        .dropdown .dropdown-menu .dropdown-submenu a {
+            border: none;
+            box-shadow: none;
+            color: rgb(0, 0, 88);
+        }
+
+        .dropdown .dropdown-menu {
+            border: none;
+            box-shadow: none;
+        }
+
+        .dropdown:hover .dropdown-menu .dropdown-submenu a {
+            color: rgb(0, 0, 88);
+            font-weight: bold;
+        }
+
+        .dropdown:hover .dropdown-menu .dropdown-submenu a:hover {
+            color: darkred;
+            font-style: italic;
+            font-weight: bold;
+            opacity: 0.5;
+        }
+
+        #button {
+            display: inline-block;
+            background-color: rgb(0, 0, 88);
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 4px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            transition: background-color .3s,
+                opacity .5s, visibility .5s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        #button::after {
+            content: "\f077";
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 2em;
+            line-height: 50px;
+            color: #fff;
+        }
+
+        #button:hover {
+            cursor: pointer;
+            background-color: rgba(163, 159, 159, 0.89);
+        }
+
+        #button:active {
+            background-color: #555;
+        }
+
+        #button.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #detail {
+            width: 100%;
+            height: auto;
+            background-color: rgba(214, 213, 213, 0.253);
+            border-radius: 20px;
+        }
+
+        #information {
+            text-align: center;
+            color: rgb(0, 0, 88);
+            font-family: 'Times New Roman';
+            font-size: 18px;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            iframe {
+                width: 200px !important;
+
+            }
+        }
+
+        @media only screen and (max-width: 1050px) {
+            iframe {
+                width: 200px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <p>Explore New' 23 collection with all new designs</p>
+    </div>
+
+
+    <div class="page-header">
+        <center>
+            <img src="images/bronx-luggage.png" alt="logo" class="logo">
+            <h1><a href="Bronx Luggage.html" style="color: rgb(0, 0, 88); font-family: 'Times New Roman';">Bronx
+                    Luggage</a>
+            </h1>
+        </center>
+    </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse">
+                    <span class="icon-bar" style="background-color: darkred;"></span>
+                    <span class="icon-bar" style="background-color: darkred;"></span>
+                    <span class="icon-bar" style="background-color: darkred;"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="dropdown">
+                        
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <a href="bric's.html">Bric's</a>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="briggsandriley.html">Briggs & Riley</a>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="samsonite.html">Samsonite</a>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="ricardo.html">Ricardo</a>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="delsey.html">Delsey</a>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="travelpro.html">Travelpro</a>
+                        </li>
+
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="laptopbags.html">Laptop Bags</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="handbags.html">Hand Bags</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="businessbags.html">Business Bags</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="rollingdufflebags.html">Rolling Duffle Bags</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="carryonluggage.html">Carryon Luggages</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="hardshellluggages.html">Hard Shell Luggages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="Bronx Luggage.html#aboutus">About Us</a></li>
+                    <li><a href="#contactus">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <a id="button"></a>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" id="detail">
+                <div class="col-md-6">
+                    <img src="images/travelprooutlet.jpg" alt="Travelpro Outlet"
+                        style="width: 100%; margin-top: 5%; height: 55vh;">
+                </div>
+                <div class="col-md-6" id="information">
+                    <h1 style="font-size: 42px;">Travelpro</h1>
+                    <p>​Over thirty years ago, a professional pilot created the first upright rolling luggage for himself and his fellow crew members. This was the original Rollaboard® - the premier product of Travelpro® Luggage.
+                        With his invention, the travel industry was transformed forever.                        
+                      At Travelpro®, innovation continues to be a driving force behind every product we develop, and we will always explore ways to enhance the travel experience.Standing behind every piece of Travelpro® luggage is our foundational belief in quality and craftsmanship that goes above and beyond industry standards.
+                   We stay attuned to the evolving demands of travelers, working to predict needs and answer them before you ask.​Employing these principles of durability, mobility, practical innovation, intelligent design, and built-in conveniences, we create luggage that goes the distance – for business or pleasure – by air, land, and sea.
+                   The result is luggage you can depend on and products that ease the trip, wherever in the world you roam.</p>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br><br><br id="contactus">
+    <footer style="background-color: rgba(214, 213, 213, 0.253);">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4"><br>
+                    <img src="images/bronx-luggage.png" alt="Bronx Luggage" style="width: 50px; margin-left: 5%;">
+                    <h4><a href="Bronx Luggage.html" style="text-decoration: none;color: rgb(0, 0, 88);"> Bronx Luggage</a></h4>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 text-center">
+                    <h1 style="color: rgb(0, 0, 88);">Contact Us</h1>
+                </div>
+                <br><br><br><br><br><br><br>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                    <form action="mailto:m.raziuddin99@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="phone" placeholder="Contact No." required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="comments" placeholder="Comments"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form><br><br>
+
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.6634160898893!2d-80.1629068!3d26.272585199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91ccaf8bca04d%3A0x373772977ef03942!2s2900%20W%20Sample%20Rd%2C%20Pompano%20Beach%2C%20FL%2033073%2C%20USA!5e0!3m2!1sen!2s!4v1686152958096!5m2!1sen!2s"
+                            width="400" height="350" style="border:0; margin-left: 280%; margin-top: -100%;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+            </div><br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p class="text-left">
+                        Contact No: 954-968-3010<br>
+                        Address: 2900 W. Sample Road, Pompano Beach, FL
+                    </p>
+                </div>
+            </div>
+        </div><br>
+        <h5 style="text-align: center; margin-top: 40px;">Copyright © 2023 Bronx Luggage. All rights reserved.</h5>
+    </footer>
+
+
+
+    <script>
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+    </script>
+
+</body>
+
+</html>

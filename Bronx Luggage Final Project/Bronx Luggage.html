@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Bronx Luggage</title>
+    <style>
+
+        .topnav{
+            width: 100%;
+            height: 4vh;
+            background-color: rgb(0, 0, 88);
+            text-align: center;
+            color: rgba(214, 213, 213, 0.61);
+        }
+
+        .logo {
+            width: 50px;
+            margin-top: 15px;
+        }
+
+        .page-header {
+            border-bottom: none;
+            margin-top: -1px;
+            background-color: rgba(214, 213, 213, 0.253);
+        }
+
+        .page-header h1 a:hover {
+            text-decoration: none;
+        }
+
+        /* .website-counter {
+            background-color: #0e0d0db9;
+            height: 25px;
+            width: 40px;
+            color: white;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 25px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        } */
+
+
+        /* Styles for reset button */
+        /* #reset {
+            margin-top: 20px;
+            background-color: #008cba;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 8px 20px;
+            color: white;
+            border: 0;
+        } */
+
+        .navbar {
+            background-color: rgba(214, 213, 213, 0.253);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar-default .navbar-nav>li>a {
+            color: rgb(0, 0, 88);
+            font-weight: bold;
+        }
+
+        .navbar-default .navbar-nav>li>a:hover {
+            background-color: transparent;
+            color: darkred;
+            font-style: italic;
+            opacity: 0.5;
+        }
+
+
+        .dropdown .dropdown-menu .dropdown-submenu a {
+            border: none;
+            box-shadow: none;
+            color: rgb(0, 0, 88) !important;
+        }
+
+        .dropdown .dropdown-menu {
+            border: none;
+            box-shadow: none;
+        }
+
+        .dropdown:hover .dropdown-menu .dropdown-submenu a {
+            color: rgb(0, 0, 88);
+            font-weight: bold;
+        }
+
+        .dropdown:hover .dropdown-menu .dropdown-submenu a:hover {
+            color: darkred !important;
+            font-style: italic;
+            font-weight: bold;
+            opacity: 0.5;
+        }
+
+        .carousel-inner .item img {
+            width: 100%;
+            height: 64vh;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        .overlay {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 100%;
+            height: 63%;
+            background-color: rgba(0, 0, 0, 0.514);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay:hover {
+            opacity: 5;
+        }
+
+        #button {
+            display: inline-block;
+            background-color: rgb(0, 0, 88);
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 4px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            transition: background-color .3s,
+                opacity .5s, visibility .5s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        #button::after {
+            content: "\f077";
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 2em;
+            line-height: 50px;
+            color: #fff;
+        }
+
+        #button:hover {
+            cursor: pointer;
+            background-color: rgba(163, 159, 159, 0.89);
+        }
+
+        #button:active {
+            background-color: #555;
+        }
+
+        #button.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #detail {
+            width: 100%;
+            height: auto;
+            background-color: rgba(214, 213, 213, 0.253);
+            border-radius: 20px;
+        }
+
+        #information {
+            text-align: center;
+            color: rgb(0, 0, 88);
+            font-family: 'Times New Roman';
+            font-size: 18px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            iframe {
+                width: 200px !important;
+
+            }
+        }
+
+        @media only screen and (max-width: 1050px) {
+            iframe {
+                width: 200px !important;
+            }
+        }
+
+
+        .social-buttons {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 60px;
+            border-radius: 5px 0 0 5px;
+            text-align: center;
+            transition: width 0.3s;
+            z-index: 9999;
+            background-color: rgba(214, 213, 213, 0.678);
+            overflow: hidden;
+
+        }
+
+        .social-buttons:hover {
+            width: 100px;
+        }
+
+        .social-buttons i {
+            display: inline;
+            color: rgb(0, 0, 88);
+            font-size: 24px;
+            line-height: 60px;
+            padding-left: 5px;
+
+        }
+
+        .social-buttons:hover .glyphicon-chevron-right {
+            display: none;
+        }
+
+        .viewmore:hover {
+            color: darkred !important;
+            font-style: italic;
+            opacity: 0.5;
+        }
+
+        .thumbnail a:hover {
+            text-decoration: none;
+        }
+
+        .fa-eye:hover {
+            color: darkred !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <p>Explore New' 23 collection with all new designs</p>
+    </div>
+
+    <div class="page-header">
+        <!-- <div style="float: right;">
+            <div class="count" style="float: left; margin-top: 10%;">Visitors count:</div>
+            <div class="website-counter"></div>
+             <button id="reset">Reset</button>
+        </div> -->
+        <center>
+            <img src="images/bronx-luggage.png" alt="logo" class="logo">
+            <h1><a href="Bronx Luggage.html" style="color: rgb(0, 0, 88); font-family: 'Times New Roman';">Bronx
+                    Luggage</a>
+            </h1>
+        </center>
+    </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse">
+                    <span class="icon-bar" style="background-color: darkred;"></span>
+                    <span class="icon-bar" style="background-color: darkred;"></span>
+                    <span class="icon-bar" style="background-color: darkred;"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="bric's.html">Bric's</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="briggsandriley.html">Briggs & Riley</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="samsonite.html">Samsonite</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="ricardo.html">Ricardo</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="delsey.html">Delsey</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="travelpro.html">Travelpro</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="laptopbags.html">Laptop Bags</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="handbags.html">Hand Bags</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="businessbags.html">Business Bags</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="rollingdufflebags.html">Rolling Duffle Bags</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="carryonluggage.html">Carryon Luggages</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="hardshellluggages.html">Hard Shell Luggages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#aboutus">About Us</a></li>
+                    <li><a href="#contactus">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <a id="button"></a>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" style="width: 100%; height: 64vh;" role="listbox">
+
+            <div class="item active">
+                <img src="images/it.jpg" style="width:100%; height: 64vh;">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="social-buttons">
+        <i class="glyphicon glyphicon-chevron-right"></i>
+        <a href="https://www.facebook.com/bronxluggagestore/"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com/bronxluggage/"><i class="fa fa-instagram" style="color: darkred;"></i></a>
+    </div>
+    <br><br>
+
+    <h1 style="color: rgb(0, 0, 88); margin-left: 2%; font-weight: bold;">Brands</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="bric's.html">
+                        <img src="images/bric'slogo.jpg" alt="Bric's Logo"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%; height: 70%;">Bric's</div>
+                        <div class="caption">
+                            <p
+                                style="color: rgb(0, 0, 88); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                                Founded in 1952 by Mario Briccola, BRIC’S Milano has been
+                                hand-crafting travel bags and fine leather goods for seventy years.1960 Located in the
+                                beautiful Lake</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="briggsandriley.html">
+                        <img src="images/briggsandrileylogo.jpg" alt="Briggs and riley logo"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%; height: 70%;">Briggs and Riley</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Briggs & Riley is THE iconic American travelware brand,
+                                built on a rich legacy of continuous innovation, exacting performance, and true
+                                dedication to the art of travel.</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="samsonite.html">
+                        <img src="images/samsoniteLogo.jpg" alt="Samsonite logo"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%; height: 70%;">Samsonite</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Founded in 1910, Samsonite is the world leader in superior travel bags, luggage and accessories. Renowned for breakthrough research and development, Samsonite builds</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="ricardo.html">
+                        <img src="images/ricardologo.jpg" alt="Ricardo logo"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%; height: 70%;">Ricardo</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">We are a travel lifestyle company on a mission to inspire people to explore the world. Every day and in every way, we work hard to ensure we bring joy to the traveling experience. Our company name, Ricardo Beverly Hills, is forever linked to the West Coast lifestyle—a state of mind for</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="delsey.html">
+                        <img src="images/delseylogo.jpg" alt="Delsey logo"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%;height: 70%;">Delsey</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Our company was born in 1946 from the merger of the Delahaye and Seynhaeve establishments, which manufactured leather cases to protect the great innovations of the time</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="travelpro.html">
+                        <img src="images/travelprologo.jpg" alt="Travelpro logo"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%; height: 70%;">Travelpro</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">Over thirty years ago, a professional pilot created the first upright rolling luggage for himself and his fellow crew members. This was the original Rollaboard®</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <h1 style="color: rgb(0, 0, 88); margin-left: 2%; font-weight: bold;">Categories</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="laptopbags.html">
+                        <img src="images/laptopbag.jpg" alt="Laptop bags"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%; height: 65%;">Laptop Bags</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88);">A laptop bag is a padded bag that is slightly larger than
+                                the laptop and it is designed to protect your laptop from scratches.</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="handbags.html">
+                        <img src="images/handbags.jpg" alt="Hand Bags"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%; height: 65%;">handbags</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88);">A purse, also known as a handbag, is a bag used to carry
+                                money, wallets, phones, and other daily essentials.</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="businessbags.html">
+                        <img src="images/businessbags.jpg" alt="Business Bags"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%; height: 65%;">Business Bags</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88);">Today business bags are a combination of a laptop bag and a
+                                document case.</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="rollingdufflebags.html">
+                        <img src="images/rollingdufflebag.jpg" alt="Rolling Duffle bags"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%;">Rolling Duffle Bags</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88);">Rolling duffel bags combine the pliability of a duffel bag
+                                with the wheeled functionality of a piece of carry-on luggage or a checked suitcase.</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="carryonluggage.html">
+                        <img src="images/carryonluggage.jpg" alt="Carryon Luggages"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%;">Carry-on Luggages</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88);">Carry-on Luggage refers to the type of luggage that
+                                passenger allowed to carry along in the passenger compartment of a vehicle instead
+                                of a separate cargo compartment.</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="thumbnail" style="background-color: rgba(214, 213, 213, 0.253);">
+                    <a href="hardshellluggages.html">
+                        <img src="images/hardshellluggages.jpg" alt="Hard Shell Luggages"
+                            style="width:100%; height: 30vh; margin-top: 2%;">
+                        <div class="overlay" style="top: 4%;">Hard Shell Luggages</div>
+                        <div class="caption">
+                            <p style="color: rgb(0, 0, 88);">Hard shell bags are typically made with “split
+                                construction”–meaning the bag zips down the middle and opens into two shallower main
+                                compartments, like a clamshell.</p>
+                            <i class="fa fa-eye" style="margin-top: -2%; float: right; color: darkblue;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br id="aboutus"><br><br><br><br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" id="detail">
+                <div class="col-md-6">
+                    <img src="images/bronxluggage.jpg" alt="Bronx Luggages"
+                        style="width: 100%; margin-top: 5%; height: 60vh;">
+                </div>
+                <div class="col-md-6" id="information">
+                    <h1 style="font-size: 42px;">Bronx Luggages</h1>
+                    <p>SOUTH FLORIDA'S PREMIER LUGGAGE STORE: LUGGAGE FOR EVERYONE:
+                        The beauty of receiving high quality luggage is a truly amazing feeling. Great luggage can be
+                        passed down from family members who are experienced travelers. A high-quality set of luggage
+                        will last a lifetime.
+                        Bronx Luggage, located in the Festival Marketplace, offers a wide selection of luggage from
+                        affordable sets to the best brands on the market for all of your travel needs. We also stock
+                        Jansport Backpacks, travel accessories, briefcases and much more. BRONX LUGGAGE HAS BEEN IN
+                        BUSINESS FOR 27 YEARS WITH OVER 60 YEARS OF EXPERIENCE. THE OWNERS AND MANAGEMENT OF BRONX
+                        LUGGAGE WILL MATCH YOU WITH ONE OF THE MANY BRANDS THAT WILL BEST FILL YOUR LUGGAGE NEEDS. WE
+                        ARE AN AUTHORIZED BRIGGS & RILEY REPAIR CENTER AND THE ONLY AUTHORIZED DEALER IN THE FESTIVAL
+                        MARKETPLACE.
+                        WE STAND BEHIND OUR PRODUCTS AND TREAT OUR CUSTOMERS LIKE FAMILY.</p>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br><br><br id="contactus">
+    <footer style="background-color: rgba(214, 213, 213, 0.253);">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4"><br>
+                    <img src="images/bronx-luggage.png" alt="Bronx Luggage" style="width: 50px; margin-left: 5%;">
+                    <h4><a href="Bronx Luggage.html" style="text-decoration: none;color: rgb(0, 0, 88);"> Bronx
+                            Luggage</a></h4>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 text-center">
+                    <h1 style="color: rgb(0, 0, 88);">Contact Us</h1>
+                </div>
+                <br><br><br><br><br><br><br>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                    <form action="mailto:m.raziuddin99@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="phone" placeholder="Contact No." required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="comments" placeholder="Comments"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form><br><br>
+
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.6634160898893!2d-80.1629068!3d26.272585199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91ccaf8bca04d%3A0x373772977ef03942!2s2900%20W%20Sample%20Rd%2C%20Pompano%20Beach%2C%20FL%2033073%2C%20USA!5e0!3m2!1sen!2s!4v1686152958096!5m2!1sen!2s"
+                            width="400" height="350" style="border:0; margin-left: 280%; margin-top: -100%;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+            </div><br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p class="text-left">
+                        Contact No: 954-968-3010<br>
+                        Address: 2900 W. Sample Road, Pompano Beach, FL
+                    </p>
+                </div>
+            </div>
+        </div><br>
+        <h5 style="text-align: center; margin-top: 40px;">Copyright © 2023 Bronx Luggage. All rights reserved.</h5>
+    </footer>
+
+
+
+
+    <script>
+        // var counterContainer = document.querySelector(".website-counter");
+        // var resetButton = document.querySelector("#reset");
+        // var visitCount = localStorage.getItem("page_view");
+
+        // // Check if page_view entry is present
+        // if (visitCount) {
+        //     visitCount = Number(visitCount) + 1;
+        //     localStorage.setItem("page_view", visitCount);
+        // } else {
+        //     visitCount = 1;
+        //     localStorage.setItem("page_view", 1);
+        // }
+        // counterContainer.innerHTML = visitCount;
+
+        // // Adding onClick event listener
+        // resetButton.addEventListener("click", () => {
+        //     visitCount = 1;
+        //     localStorage.setItem("page_view", 1);
+        //     counterContainer.innerHTML = visitCount;
+        // });
+
+
+
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+        // crousel
+        $(document).ready(function () {
+            var images = ["images/1.jpg", "images/2.jpg", "images/brics.jpg", "images/3.jpg", "images/4.jpg", "images/travelpro.jpg"];
+            var currentImages = [];
+            var itemsPerSlide = 5;
+            var visibleIndicators = 6; // Set the desired number of carousel indicators
+
+            // Shuffle the images array
+            images.sort(() => Math.random() - 0.5);
+
+            // Take 5 random images
+            var randomImages = images.slice(0, itemsPerSlide);
+
+            // Generate the carousel items
+            for (var i = 0; i < randomImages.length; i++) {
+                var image = randomImages[i];
+                var item = $('<div class="item"><img src="' + image + '" alt="Image ' + (i + 1) + '"></div>');
+                currentImages.push(item);
+            }
+
+            // Update the carousel indicators
+            $('#myCarousel .carousel-indicators').empty();
+            for (var j = 0; j < visibleIndicators; j++) {
+                var indicator = $('<li data-target="#myCarousel" data-slide-to="' + j + '"></li>');
+                if (j === 0) {
+                    indicator.addClass('active');
+                }
+                $('#myCarousel .carousel-indicators').append(indicator);
+            }
+
+            // Append the carousel items to the carousel inner container
+            $('#myCarousel .carousel-inner').append(currentImages);
+
+            // Activate the carousel
+            $('#myCarousel').carousel();
+        });
+
+
+    </script>
+</body>
+
+</html>
